@@ -325,7 +325,7 @@ Above is the tweaked version of the reset css to my whishes
   }
   
   .book:hover {
-    transform: rotateY(-180deg);
+    transform: rotateY(0deg);
   }
   
   .book > :first-child {
@@ -416,5 +416,9 @@ Above is the tweaked version of the reset css to my whishes
   .svg-icons {
     width: 100%;
     max-width: 130px;
-    padding: 0 0 1rem 1rem;
+    padding: 0 0 .2rem 1rem;
   } 
+
+  .summary {
+    margin-bottom: .9rem;
+  }
