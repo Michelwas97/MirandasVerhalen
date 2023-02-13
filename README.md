@@ -11,6 +11,13 @@ Op de single webpage "Miranda's Verhalen" maak ik een concept web app die de ver
 
 ---
 
+## Project setup
+
+1. [Research and UI sketching](#).
+2. [Load data & Build UI](#).
+3. [Add feedback & testing the UI](#).
+3. [Conduct code review](#).
+
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
 <!-- ☝️ replace this description with a description of your own work -->
