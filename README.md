@@ -4,6 +4,7 @@ Op de single webpage "Miranda's Verhalen" maak ik een concept web app die de ver
 
 ## Assignment
 
+0. [Choose user story](https://github.com/cmda-minor-web/web-app-from-scratch-2122/blob/main/course/storytelling.md)
 1. [Research and UI sketching](#).
 2. [Load data & Build UI](#).
 3. [Add feedback & testing the UI](#).
@@ -18,6 +19,14 @@ Op de single webpage "Miranda's Verhalen" maak ik een concept web app die de ver
 3. [Add feedback & testing the UI](#).
 3. [Conduct code review](#).
 
+---
+
+## Project Process
+### Week 1
+
+For the first week I first started sketching the happy flow using the [User Story](https://github.com/cmda-minor-web/web-app-from-scratch-2122/blob/main/course/storytelling.md) I chose. While doing this I noticed I needed a landing page area and then a collection of story's which would be clickable to speak out the story writting inside them.
+
+After sketching out I started researching the API that was connected to the [User Story](https://github.com/cmda-minor-web/web-app-from-scratch-2122/blob/main/course/storytelling.md), 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
 <!-- ☝️ replace this description with a description of your own work -->
