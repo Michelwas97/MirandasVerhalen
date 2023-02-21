@@ -33,27 +33,27 @@ window.addEventListener("load", () => {
     storyList.className = "story-list";
     stories.appendChild(storyList);
 
-    for (var i = 0; i < storyObject.length; i++) {
-        var story = storyObject[i];
-        var storyListItem = document.createElement("li");
+    
+    storyObject.map((story) => {
+        const storyListItem = document.createElement("li");
         storyListItem.className = "story-list-item";
         storyList.appendChild(storyListItem);
-
-        var storyImg = document.createElement("img");
+      
+        const storyImg = document.createElement("img");
         storyImg.className = "story-img";
         storyImg.src = story.imgUrl;
         storyListItem.appendChild(storyImg);
-
-        var storyTitle = document.createElement("h3");
+      
+        const storyTitle = document.createElement("h3");
         storyTitle.className = "story-title";
         storyTitle.innerHTML = story.title;
         storyListItem.appendChild(storyTitle);
-
-        var storySummary = document.createElement("p");
+      
+        const storySummary = document.createElement("p");
         storySummary.className = "story-summary";
         storySummary.innerHTML = story.summary;
         storyListItem.appendChild(storySummary);
-    }
+      });
 });
 
 const synth = window.speechSynthesis;
@@ -62,6 +62,7 @@ const synth = window.speechSynthesis;
 document.addEventListener("click", (e) => {
         // Get the text content of the <p> element
         const text = e.target.textContent;
+        // TODO: change target paragrapth class to button when its added
         const targetParagraph = document.querySelector(".story-summary");
 
         if (e.target != targetParagraph && synth.speaking) {
@@ -83,7 +84,5 @@ document.addEventListener("click", (e) => {
             synth.speak(utterThis);
           } else {
             console.log("Not a story summary");
-        }
-
-        
+        }     
 });

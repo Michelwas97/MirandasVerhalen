@@ -305,6 +305,12 @@ header {
   background: red;
 }
 
+@media (max-width: 600px) {
+  #stories > .story-list > li {
+    flex-basis: 100%;
+  }
+}
+
 #stories > .story-list > li:first-child:nth-last-child(odd) {
   flex-basis:100%;
 }
