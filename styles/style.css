@@ -198,7 +198,7 @@ h1 {
 /* Heading 2 */
 h2 {
     font-family: 'Poppins', Arial, sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
 
     color: var(--text-color-primary);
     margin-bottom: 12px;
@@ -207,7 +207,7 @@ h2 {
 /* Heading 3 */
 h3 {
     font-family: 'Poppins', Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 p {
@@ -251,7 +251,11 @@ Above is the tweaked version of the reset css to my whishes
     --color-black: #000;
     --color-white: #fff;
 
-    --bg-color-main: #FF7151;
+    --bg-color-main: #E9D2FC;
+    --bg-color-secondary: #2C074B;
+
+    --button-color-orange: #FF7151;
+    --button-color-dark_purple: #2C074B;
 
     --text-color-primary: #2C074B;
     --text-color-secondary: #FF7151;
@@ -269,6 +273,12 @@ Above is the tweaked version of the reset css to my whishes
     font-display: swap;
 }
 
+body {
+    background-color: var(--bg-color-secondary);
+
+    z-index: -1;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -277,8 +287,11 @@ header {
     
     position: relative;
     height: 100vh;
+    min-height: -webkit-fill-available;
 
     padding: 0 1em;
+
+    background-color: var(--bg-color-main);
 }
 
 header img:first-of-type {
@@ -286,7 +299,7 @@ header img:first-of-type {
     top: 0;
     left: 0;
 
-    z-index: -1;         
+    z-index: 0;         
 }
 
 header img:last-of-type {
@@ -294,7 +307,7 @@ header img:last-of-type {
     bottom: 0;
     right: 0;
 
-    z-index: -1;
+    z-index: 0;
 }
 
 header h1 {
@@ -305,7 +318,7 @@ header a {
     position: relative;
     padding: 19px 19px;
 
-    background-color: var(--bg-color-main);
+    background-color: var(--button-color-orange);
     border-radius: 50%;
 }
 
@@ -348,6 +361,8 @@ header a:hover svg circle {
 
 main {
     padding: 0 1em;
+
+    background-color: var(--bg-color-main);
 }
 
 .story-list {
@@ -396,11 +411,11 @@ main {
     }
 
     header a::before {
-        animation: rotate 10s linear infinite;
+        animation: rotate 20s linear infinite;
     }
 
     header a:hover::before {
-        animation: rotate 20s linear infinite;
+        animation: rotate 10s linear infinite;
     }
   }
 
