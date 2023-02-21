@@ -187,29 +187,27 @@ body {
 
 /* Heading 1 */
 h1 {
-    font-family: 'Poppins-Bold', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 4rem;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 3rem;
 
     margin-bottom: 16px;
 
-    font-size: 4rem;
+    color: var(--text-color-primary);
 }
 
 /* Heading 2 */
 h2 {
-    font-family: 'Poppins-Bold', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 2rem;
 
-    color: #ffffff;
+    color: var(--text-color-primary);
     margin-bottom: 12px;
 }
 
 /* Heading 3 */
 h3 {
-    font-family: 'Poppins-Bold', Arial, sans-serif;
-    font-size: 2rem;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1.5rem;
 }
 
 p {
@@ -253,13 +251,12 @@ Above is the tweaked version of the reset css to my whishes
     --color-black: #000;
     --color-white: #fff;
 
-    --bg-color-main: #add8e6;
-    --color-lightblue: #53b3d2;
-    --color-darkblue: #2a5d6e;
+    --bg-color-main: #FF7151;
 
-    --bg-color-menu: #6298aa;
-    --bg-color-button: #add8e6;
-    --bg-color-button-secondary: #ec1111a6;
+    --text-color-primary: #2C074B;
+    --text-color-secondary: #FF7151;
+
+    --state-focussed-color: #693196;
 }
 
 @font-face {
@@ -272,25 +269,85 @@ Above is the tweaked version of the reset css to my whishes
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Poppins-Bold';
-    src: url('/visitekaartje/fonts/Poppins-Bold.eot');
-    src: url('/visitekaartje/fonts/Poppins-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/visitekaartje/fonts/Poppins-Bold.svg#Poppins-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-body {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
 header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
     height: 100vh;
+
+    padding: 0 1em;
+}
+
+header img:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: -1;         
+}
+
+header img:last-of-type {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    z-index: -1;
+}
+
+header h1 {
+    margin: 0 0 2em;
+}
+
+header a {
+    position: relative;
+    padding: 19px 19px;
+
+    background-color: var(--bg-color-main);
+    border-radius: 50%;
+}
+
+header a::before {
+    content: "";
+
+    position: absolute;
+    inset: -20px;
+
+    border-radius: 50%;
+    background-color: transparent;
+
+    background-image: url(../images/circle-text.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+header a svg {
+    fill: none;
+}
+
+header a svg path{
+    fill: var(--text-color-primary);
+}
+
+header a svg path,
+header a svg circle {
+    stroke: var(--text-color-primary);
+}
+
+header a:hover svg path{
+    fill: var(--color-white);
+}
+
+header a:hover svg path,
+header a:hover svg circle {
+    stroke: var(--color-white);
+}
+
+main {
+    padding: 0 1em;
 }
 
 .story-list {
@@ -305,12 +362,53 @@ header {
   background: red;
 }
 
-@media (max-width: 600px) {
-  #stories > .story-list > li {
-    flex-basis: 100%;
-  }
-}
-
 #stories > .story-list > li:first-child:nth-last-child(odd) {
   flex-basis:100%;
 }
+
+@media only screen and (max-width: 600px) {
+    #stories > .story-list > li {
+      flex-basis: 100%;
+    }
+
+    header img:first-of-type {
+        scale: 1;       
+    }
+
+    header img:last-of-type {
+        scale: 1;
+    }
+
+    header a::before {
+        animation: rotate 10s linear infinite;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+
+    header img:first-of-type {
+        scale: 3;       
+    }
+
+    header img:last-of-type {
+        scale: 1.5;
+        transform-origin: bottom right;
+    }
+
+    header a::before {
+        animation: rotate 10s linear infinite;
+    }
+
+    header a:hover::before {
+        animation: rotate 20s linear infinite;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
