@@ -286,8 +286,9 @@ header {
     justify-content: center;
     
     position: relative;
-    height: 100vh, fill-available;
-    /* height: fill-available; */
+    min-height: 100vh;
+    /* height: 100vh; */
+    min-height: fill-available;
 
     padding: 0 1em;
 
