@@ -287,8 +287,7 @@ header {
     
     position: relative;
     min-height: 100vh;
-    /* height: 100vh; */
-    min-height: webkit-fill-available;
+    min-height: -webkit-fill-available;
 
     padding: 0 1em;
 
