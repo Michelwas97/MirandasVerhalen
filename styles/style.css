@@ -251,26 +251,24 @@ Above is the tweaked version of the reset css to my whishes
     --color-black: #000;
     --color-white: #fff;
 
-    --bg-color-main: #E9D2FC;
-    --bg-color-secondary: #2C074B;
+    --bg-color-main: #e9d2fc;
+    --bg-color-secondary: #2c074b;
 
-    --button-color-orange: #FF7151;
-    --button-color-dark_purple: #2C074B;
-
-    --text-color-primary: #2C074B;
-    --text-color-secondary: #FF7151;
+    --primary-color-lightblue: #e9d2fc;
+    --primary-color-darkpurple: #2c074b;
+    --primary-color-orange: #ff7151;
 
     --state-focussed-color: #693196;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/visitekaartje/fonts/fonts/Poppins-Regular.eot');
-    src: url('/visitekaartje/fonts/fonts/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/visitekaartje/fonts/Poppins-Regular.svg') format('svg');
+    src: url('/MirandasVerhalen/fonts/Poppins-Regular.eot');
+    src: url('/MirandasVerhalen/fonts/fonts/Poppins-Regular.eot?#iefix')
+            format('embedded-opentype'),
+        url('/MirandasVerhalen/fonts/Poppins-Regular.svg') format('svg');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 body {
@@ -284,12 +282,12 @@ article {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
     position: relative;
     min-height: 100vh;
     min-height: -webkit-fill-available;
 
-    padding: 0 2em 4rem;
+    padding: 0 1.2rem 4rem;
 
     background-color: var(--bg-color-main);
 }
@@ -299,7 +297,7 @@ article:first-of-type img:first-of-type {
     top: 0;
     left: 0;
 
-    z-index: 0;         
+    z-index: 0;
 }
 
 article:first-of-type img:last-of-type {
@@ -318,12 +316,12 @@ article:first-of-type a {
     position: relative;
     padding: 19px 19px;
 
-    background-color: var(--button-color-orange);
+    background-color: var(--primary-color-orange);
     border-radius: 50%;
 }
 
 article:first-of-type a::before {
-    content: "";
+    content: '';
 
     position: absolute;
     inset: -20px;
@@ -341,16 +339,16 @@ article:first-of-type a svg {
     fill: none;
 }
 
-article:first-of-type a svg path{
-    fill: var(--text-color-primary);
+article:first-of-type a svg path {
+    fill: var(--primary-color-darkpurple);
 }
 
 article:first-of-type a svg path,
 article:first-of-type a svg circle {
-    stroke: var(--text-color-primary);
+    stroke: var(--primary-color-darkpurple);
 }
 
-article:first-of-type a:hover svg path{
+article:first-of-type a:hover svg path {
     fill: var(--color-white);
 }
 
@@ -358,6 +356,10 @@ article:first-of-type a:hover svg path,
 article:first-of-type a:hover svg circle {
     stroke: var(--color-white);
 }
+
+/* 
+ * Start of story section
+ */
 
 main {
     width: 100%;
@@ -369,27 +371,11 @@ main {
 }
 
 main > h2 {
-    padding: 0 2rem;
-}
-
-.story-list {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-#stories li {
-  flex: 40%;
-  width: 10rem;
-  background: red;
-}
-
-#stories > .story-list > li:first-child:nth-last-child(odd) {
-  flex-basis:100%;
+    padding: 0 1.2rem;
 }
 
 main > section {
-    padding: 0 2em;
+    padding: 0 1.2rem;
 }
 
 main > section:first-of-type {
@@ -413,25 +399,111 @@ main section > figure figcaption {
     padding: 0 0 0 1.2rem;
 }
 
+.story-list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#stories li {
+    display: flex;
+    width: 100%;
+
+    padding: 1rem;
+
+    border-radius: 5px;
+
+    background: var(--bg-color-secondary);
+}
+
+#stories li:nth-child(even) {
+    background: var(--primary-color-orange);
+}
+
+#stories > .story-list > li:first-child:nth-last-child(odd) {
+    flex-basis: 100%;
+}
+
+.story-img {
+    width: 100%;
+    max-width: 80px;
+    height: 100%;
+    max-height: 80px;
+
+    margin: 0 1.2rem 0 0;
+
+    border-radius: 5px;
+}
+
+.story-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .story-title {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 2rem;
+        color: var(--color-white);
+
+        margin: 0 0 0.5rem;
+    }
+
+    .story-summary {
+        display: none;
+    }
+
+.story-button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+  }
+
+    .story-button-appearance {
+        width: 100%;
+        height: 100%;
+        max-width: 150px;
+        max-height: 150px;
+
+        padding-left: 6px;
+    }
+
+        .story-button-appearance circle {
+            stroke-width: 4px;
+        }
+
+            #stories li:nth-child(even) .story-button-appearance path {
+                fill: var(--primary-color-darkpurple);
+            }
+            
+            #stories li:nth-child(even) .story-button-appearance circle {
+                stroke: var(--primary-color-darkpurple);
+            }
+
+/* 
+ * Repsonsive css code mobile > tablet
+ */
+
 @media only screen and (min-width: 320px) and (max-width: 1023px) {
     /* 
      * sizing of landing area
      */
 
     article:first-of-type img:first-of-type {
-        scale: 1;       
+        scale: 1;
     }
-    
+
     article:first-of-type img:last-of-type {
         scale: 1;
     }
-    
+
     article:first-of-type a::before {
         animation: rotate 10s linear infinite;
     }
 
     #stories > .story-list > li {
-      flex-basis: 100%;
+        flex-basis: 100%;
     }
 
     body {
@@ -447,16 +519,19 @@ main section > figure figcaption {
         max-width: 80px;
         max-height: 80px;
     }
-  }
+}
 
-  @media only screen and (min-width: 1024px) {
+/* 
+ * Repsonsive css code desktop
+ */
 
+@media only screen and (min-width: 1024px) {
     article:first-of-type {
         height: 100vh;
     }
 
     article:first-of-type img:first-of-type {
-        scale: 3;       
+        scale: 3;
     }
 
     article:first-of-type img:last-of-type {
@@ -483,13 +558,13 @@ main section > figure figcaption {
     main section > figure figcaption {
         font-size: 3rem;
     }
-  }
+}
 
-  @keyframes rotate {
+@keyframes rotate {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
