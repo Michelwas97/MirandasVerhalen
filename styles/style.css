@@ -274,12 +274,12 @@ Above is the tweaked version of the reset css to my whishes
 }
 
 body {
-    background-color: var(--bg-color-secondary);
+    background-color: var(--bg-color-main);
 
     z-index: -1;
 }
 
-header {
+article {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,12 +289,12 @@ header {
     min-height: 100vh;
     min-height: -webkit-fill-available;
 
-    padding: 0 1em;
+    padding: 0 2em 4rem;
 
     background-color: var(--bg-color-main);
 }
 
-header img:first-of-type {
+article:first-of-type img:first-of-type {
     position: absolute;
     top: 0;
     left: 0;
@@ -302,7 +302,7 @@ header img:first-of-type {
     z-index: 0;         
 }
 
-header img:last-of-type {
+article:first-of-type img:last-of-type {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -310,11 +310,11 @@ header img:last-of-type {
     z-index: 0;
 }
 
-header h1 {
+article:first-of-type h1 {
     margin: 0 0 2em;
 }
 
-header a {
+article:first-of-type a {
     position: relative;
     padding: 19px 19px;
 
@@ -322,7 +322,7 @@ header a {
     border-radius: 50%;
 }
 
-header a::before {
+article:first-of-type a::before {
     content: "";
 
     position: absolute;
@@ -331,38 +331,45 @@ header a::before {
     border-radius: 50%;
     background-color: transparent;
 
-    background-image: url(../images/circle-text.svg);
+    background-image: url(../images/circle-text-final.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-header a svg {
+article:first-of-type a svg {
     fill: none;
 }
 
-header a svg path{
+article:first-of-type a svg path{
     fill: var(--text-color-primary);
 }
 
-header a svg path,
-header a svg circle {
+article:first-of-type a svg path,
+article:first-of-type a svg circle {
     stroke: var(--text-color-primary);
 }
 
-header a:hover svg path{
+article:first-of-type a:hover svg path{
     fill: var(--color-white);
 }
 
-header a:hover svg path,
-header a:hover svg circle {
+article:first-of-type a:hover svg path,
+article:first-of-type a:hover svg circle {
     stroke: var(--color-white);
 }
 
 main {
-    padding: 0 1em;
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
 
     background-color: var(--bg-color-main);
+}
+
+main > h2 {
+    padding: 0 2rem;
 }
 
 .story-list {
@@ -381,41 +388,100 @@ main {
   flex-basis:100%;
 }
 
-@media only screen and (max-width: 600px) {
+main > section {
+    padding: 0 2em;
+}
+
+main > section:first-of-type {
+    margin: 0 0 4rem 0;
+}
+
+main section > figure {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+main section > figure img {
+    clip-path: circle(50%);
+}
+
+main section > figure figcaption {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1.5rem;
+
+    padding: 0 0 0 1.2rem;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1023px) {
+    /* 
+     * sizing of landing area
+     */
+
+    article:first-of-type img:first-of-type {
+        scale: 1;       
+    }
+    
+    article:first-of-type img:last-of-type {
+        scale: 1;
+    }
+    
+    article:first-of-type a::before {
+        animation: rotate 10s linear infinite;
+    }
+
     #stories > .story-list > li {
       flex-basis: 100%;
     }
 
-    header img:first-of-type {
-        scale: 1;       
+    body {
+        background-color: var(--bg-color-secondary);
     }
 
-    header img:last-of-type {
-        scale: 1;
-    }
+    /*  */
 
-    header a::before {
-        animation: rotate 10s linear infinite;
+    main > section:first-of-type img {
+        width: 100%;
+        height: 100%;
+
+        max-width: 80px;
+        max-height: 80px;
     }
   }
 
   @media only screen and (min-width: 1024px) {
 
-    header img:first-of-type {
+    article:first-of-type {
+        height: 100vh;
+    }
+
+    article:first-of-type img:first-of-type {
         scale: 3;       
     }
 
-    header img:last-of-type {
+    article:first-of-type img:last-of-type {
         scale: 1.5;
         transform-origin: bottom right;
     }
 
-    header a::before {
+    article:first-of-type a::before {
         animation: rotate 20s linear infinite;
     }
 
-    header a:hover::before {
+    article:first-of-type a:hover::before {
         animation: rotate 10s linear infinite;
+    }
+
+    main > section:first-of-type img {
+        width: 100%;
+        height: 100%;
+
+        max-width: 160px;
+        max-height: 160px;
+    }
+
+    main section > figure figcaption {
+        font-size: 3rem;
     }
   }
 
