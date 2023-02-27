@@ -407,17 +407,14 @@ main section > figure figcaption {
 
 #stories li {
     display: flex;
-    width: 100%;
+    flex-basis: 49.57%;
 
     padding: 1rem;
 
     border-radius: 5px;
 
     background: var(--bg-color-secondary);
-}
-
-#stories li:nth-child(even) {
-    background: var(--primary-color-orange);
+    cursor: pointer;
 }
 
 #stories > .story-list > li:first-child:nth-last-child(odd) {
@@ -463,8 +460,7 @@ main section > figure figcaption {
     .story-button-appearance {
         width: 100%;
         height: 100%;
-        max-width: 150px;
-        max-height: 150px;
+        max-width: 85px;
 
         padding-left: 6px;
     }
@@ -473,19 +469,15 @@ main section > figure figcaption {
             stroke-width: 4px;
         }
 
-            #stories li:nth-child(even) .story-button-appearance path {
-                fill: var(--primary-color-darkpurple);
-            }
-            
-            #stories li:nth-child(even) .story-button-appearance circle {
-                stroke: var(--primary-color-darkpurple);
-            }
-
 /* 
  * Repsonsive css code mobile > tablet
  */
 
 @media only screen and (min-width: 320px) and (max-width: 1023px) {
+    body {
+        background-color: var(--bg-color-secondary);
+    }
+
     /* 
      * sizing of landing area
      */
@@ -506,8 +498,16 @@ main section > figure figcaption {
         flex-basis: 100%;
     }
 
-    body {
-        background-color: var(--bg-color-secondary);
+    #stories li:nth-child(even) {
+        background: var(--primary-color-orange);
+    }
+
+    #stories li:nth-child(even) .story-button-appearance path {
+        fill: var(--primary-color-darkpurple);
+    }
+    
+    #stories li:nth-child(even) .story-button-appearance circle {
+        stroke: var(--primary-color-darkpurple);
     }
 
     /*  */
@@ -556,6 +556,15 @@ main section > figure figcaption {
     }
 
     main section > figure figcaption {
+        font-size: 3rem;
+    }
+
+    .story-img {
+        max-width: 160px;
+        max-height: 160px;
+    }
+
+    .story-title {
         font-size: 3rem;
     }
 }
