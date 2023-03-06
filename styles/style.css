@@ -358,7 +358,7 @@ article:first-of-type a:hover svg circle {
 }
 
 /* 
- * Start of story section
+ * Start of view section
  */
 
 main {
@@ -399,14 +399,14 @@ main section > figure figcaption {
     padding: 0 0 0 1.2rem;
 }
 
-.story-list {
+.view-list {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#stories li {
+#router-view li {
     display: flex;
     flex-basis: 49%;
 
@@ -418,7 +418,7 @@ main section > figure figcaption {
     cursor: pointer;
 }
 
-.story-img {
+.view-img {
     width: 100%;
     max-width: 80px;
     height: 100%;
@@ -429,13 +429,13 @@ main section > figure figcaption {
     border-radius: 5px;
 }
 
-.story-info {
+.view-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-    .story-title {
+    .view-title {
         font-family: 'Poppins', Arial, sans-serif;
         font-size: 2rem;
         color: var(--color-white);
@@ -443,18 +443,18 @@ main section > figure figcaption {
         margin: 0 0 0.5rem;
     }
 
-    .story-summary {
+    .view-summary {
         display: none;
     }
 
-.story-button {
+.view-button {
     border: none;
     cursor: pointer;
     appearance: none;
     background-color: inherit;
   }
 
-    .story-button-appearance {
+    .view-button-appearance {
         width: 100%;
         height: 100%;
         max-width: 85px;
@@ -462,7 +462,7 @@ main section > figure figcaption {
         padding-left: 6px;
     }
 
-        .story-button-appearance circle {
+        .view-button-appearance circle {
             stroke-width: 4px;
         }
 
@@ -491,19 +491,19 @@ main section > figure figcaption {
         animation: rotate 10s linear infinite;
     }
 
-    #stories > .story-list > li {
+    #router-view > .view-list > li {
         flex-basis: 100%;
     }
 
-    #stories li:nth-child(even) {
+    #router-view li:nth-child(even) {
         background: var(--primary-color-orange);
     }
 
-    #stories li:nth-child(even) .story-button-appearance path {
+    #router-view li:nth-child(even) .view-button-appearance path {
         fill: var(--primary-color-darkpurple);
     }
     
-    #stories li:nth-child(even) .story-button-appearance circle {
+    #router-view li:nth-child(even) .view-button-appearance circle {
         stroke: var(--primary-color-darkpurple);
     }
 
@@ -517,7 +517,7 @@ main section > figure figcaption {
         max-height: 80px;
     }
 
-    #stories > .story-list > li:first-child:nth-last-child(odd) {
+    #router-view > .view-list > li:first-child:nth-last-child(odd) {
         flex-basis: 100%;
     }
 }
@@ -560,12 +560,12 @@ main section > figure figcaption {
         font-size: 3rem;
     }
 
-    .story-img {
+    .view-img {
         max-width: 160px;
         max-height: 160px;
     }
 
-    .story-title {
+    .view-title {
         font-size: 3rem;
     }
 }

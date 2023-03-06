@@ -1,11 +1,18 @@
-import { renderStoryList } from "./storage.js";
+import { renderStorySection } from "./storage.js";
+import { renderEmptyState } from "./storage.js";
 import { setupSpeechSynthesis } from "./synthesizer.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
-  routie('stories', function() {
-    //this gets called when hash == #stories
-    renderStoryList();
-  });
+  routie({
+    '': function() {
+      //this gets called when hash == no hash (landing empty)
+      renderEmptyState();
+    },
+    'stories': function() {
+      //this gets called when hash == #stories
+      renderStorySection();
+    }
+});
 });
 
 window.addEventListener('load', () => {

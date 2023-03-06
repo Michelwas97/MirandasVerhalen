@@ -27,45 +27,50 @@ export const storyObject = [{ id: 1,
 
 // function to create story list
 
-export function renderStoryList() {
-    var stories = document.getElementById("stories");
-    var storyList = document.createElement("ul");
-    storyList.className = "story-list";
-    stories.appendChild(storyList);
+export function renderStorySection() {
+    const routerView = document.getElementById("router-view");
+
+    const routerViewTitle = document.createElement("h2");
+    routerViewTitle.innerHTML = "Verhalen";
+    routerView.appendChild(routerViewTitle);
+
+    const storyList = document.createElement("ul");
+    storyList.className = "view-list";
+    routerView.appendChild(storyList);
 
     
     storyObject.map((story) => {
         // create story list item
         const storyListItem = document.createElement("li");
-        storyListItem.className = "story-list-item";
+        storyListItem.className = "view-list-item";
         storyList.appendChild(storyListItem);
       
         // create story image
         const storyImg = document.createElement("img");
-        storyImg.className = "story-img";
+        storyImg.className = "view-img";
         storyImg.src = story.imgUrl;
         storyListItem.appendChild(storyImg);
       
         // create story info container
         const storyInfo = document.createElement("div");
-        storyInfo.className = "story-info";
+        storyInfo.className = "view-info";
         storyListItem.appendChild(storyInfo);
 
             // create story title and append to info container
             const storyTitle = document.createElement("h3");
-            storyTitle.className = "story-title";
+            storyTitle.className = "view-title";
             storyTitle.innerHTML = story.title;
             storyInfo.appendChild(storyTitle);
       
             // create story summary and append to info container
             const storySummary = document.createElement("p");
-            storySummary.className = "story-summary";
+            storySummary.className = "view-summary";
             storySummary.innerHTML = story.summary;
             storyInfo.appendChild(storySummary);
 
         // create story button append to list item
         const storyButton = document.createElement("button");
-        storyButton.className = "story-button";
+        storyButton.className = "view-button";
         storyListItem.appendChild(storyButton);
 
         // create story svg appearance and append to button
@@ -73,7 +78,7 @@ export function renderStoryList() {
         const iconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
         const iconCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 
-        iconSvg.classList.add('story-button-appearance');
+        iconSvg.classList.add('view-button-appearance');
         iconSvg.setAttribute("fill", "none");
         iconSvg.setAttribute("viewBox", "0 0 146 146");
         iconSvg.setAttribute("width", "146");
@@ -95,4 +100,41 @@ export function renderStoryList() {
         iconSvg.appendChild(iconCircle);
         storyButton.appendChild(iconSvg);
       });
+};
+
+export function renderEmptyState() {
+    const routerView = document.getElementById("router-view");
+
+    const emptyStateTitle = document.createElement("h2");
+    emptyStateTitle.innerHTML = "Geen verhalen gevonden";
+    routerView.appendChild(emptyStateTitle);
+
+    const emptyStateList = document.createElement("ul");
+    emptyStateList.className = "view-list";
+    routerView.appendChild(emptyStateList);
+
+    for (let i = 0; i < 4; i++) {
+        const emptyStateItem = document.createElement("li");
+        emptyStateItem.className = "view-list-item";
+        emptyStateList.appendChild(emptyStateItem);
+
+        const emptyStateThumbnail = document.createElement("img");
+        emptyStateThumbnail.className = "view-img";
+        emptyStateThumbnail.src = "https://via.placeholder.com/150";
+        emptyStateItem.appendChild(emptyStateThumbnail);
+
+        const emptyStateInfo = document.createElement("div");
+        emptyStateInfo.className = "view-info";
+        emptyStateItem.appendChild(emptyStateInfo);
+
+            const emptyStateTitle = document.createElement("h3");
+            emptyStateTitle.className = "view-title";
+            emptyStateTitle.innerHTML = "Klik op Luisteren knop om te zoeken naar verhalen.";
+            emptyStateInfo.appendChild(emptyStateTitle);
+
+            const emptyStateSummary = document.createElement("p");
+            emptyStateSummary.className = "view-summary";
+            emptyStateSummary.innerHTML = "Nog geen samenvatting van verhaal gevonden";
+            emptyStateInfo.appendChild(emptyStateSummary);
+      }
 };
