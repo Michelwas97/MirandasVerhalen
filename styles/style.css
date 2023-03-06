@@ -401,13 +401,14 @@ main section > figure figcaption {
 
 .story-list {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 #stories li {
     display: flex;
-    flex-basis: 49.57%;
+    flex-basis: 49%;
 
     padding: 1rem;
 
@@ -415,10 +416,6 @@ main section > figure figcaption {
 
     background: var(--bg-color-secondary);
     cursor: pointer;
-}
-
-#stories > .story-list > li:first-child:nth-last-child(odd) {
-    flex-basis: 100%;
 }
 
 .story-img {
@@ -518,6 +515,10 @@ main section > figure figcaption {
 
         max-width: 80px;
         max-height: 80px;
+    }
+
+    #stories > .story-list > li:first-child:nth-last-child(odd) {
+        flex-basis: 100%;
     }
 }
 
