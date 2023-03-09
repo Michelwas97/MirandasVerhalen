@@ -2,11 +2,11 @@ import { storyObject } from "./storage.js";
 
 export function setupSpeechSynthesis() {
     const synth = window.speechSynthesis;
-    const storyList = document.querySelector('.story-list');
+    const storyList = document.querySelector('.view-list');
   
     if (storyList) {
       storyList.addEventListener('click', (e) => {
-        const listItem = e.target.closest('.story-list-item');
+        const listItem = e.target.closest('.view-list-item');
   
         // Check if synth is speaking
         if (synth.speaking) {

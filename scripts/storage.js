@@ -29,9 +29,12 @@ export const storyObject = [{ id: 1,
 
 export function renderStorySection() {
     const routerView = document.getElementById("router-view");
+    routerView.removeAttribute("class", "empty-state");
+    routerView.setAttribute("class", "story-state");
 
     const routerViewTitle = document.createElement("h2");
     routerViewTitle.innerHTML = "Verhalen";
+    routerViewTitle.className = "view-list-title";
     routerView.appendChild(routerViewTitle);
 
     const storyList = document.createElement("ul");
@@ -104,8 +107,11 @@ export function renderStorySection() {
 
 export function renderEmptyState() {
     const routerView = document.getElementById("router-view");
+    routerView.removeAttribute("class", "story-state");
+    routerView.setAttribute("class", "empty-state");
 
     const emptyStateTitle = document.createElement("h2");
+    emptyStateTitle.className = "view-list-title";
     emptyStateTitle.innerHTML = "Geen verhalen gevonden";
     routerView.appendChild(emptyStateTitle);
 
