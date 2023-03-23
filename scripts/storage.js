@@ -1,33 +1,10 @@
-export const storyObject = [{ id: 1,
-    title: "De Kikker en de Os",
-    language: "Dutch",
-    imgUrl: "./images/story-thumbnail.jpg",
-    summary: "Een Os kwam naar een rietachtig poel om te drinken. Toen hij zwaar in het water plonsde, trapte hij een jonge Kikker in de modder. De oude Kikker miste het jonge diertje snel en vroeg aan zijn broers en zussen wat er van hem was geworden. &ldquo;Een grote monster,&rdquo; zei een van hen, &ldquo;stepte op onze kleine broer met een van zijn enorme voeten!&rdquo; &ldquo;Groot was hij!&rdquo; zei de oude Kikker, zich opblazend. &ldquo;Was hij zo groot als dit?&rdquo; &ldquo;Oh, veel groter!&rdquo; riepen ze. De Kikker blies zich nog meer op. &ldquo;Hij kon niet groter zijn dan dit,&rdquo; zei ze. Maar de kleine Kikkers verklaarden allemaal dat het monster veel, veel groter was en de oude Kikker bleef zich steeds meer opblazen totdat ze opeens barstte."
-}, { id: 2,
-    title: "De Kikker en de Os",
-    language: "Dutch",
-    imgUrl: "./images/story-thumbnail.jpg",
-    summary: "Een Os kwam naar een rietachtig poel om te drinken. Toen hij zwaar in het water plonsde, trapte hij een jonge Kikker in de modder. De oude Kikker miste het jonge diertje snel en vroeg aan zijn broers en zussen wat er van hem was geworden. &ldquo;Een grote monster,&rdquo; zei een van hen, &ldquo;stepte op onze kleine broer met een van zijn enorme voeten!&rdquo; &ldquo;Groot was hij!&rdquo; zei de oude Kikker, zich opblazend. &ldquo;Was hij zo groot als dit?&rdquo; &ldquo;Oh, veel groter!&rdquo; riepen ze. De Kikker blies zich nog meer op. &ldquo;Hij kon niet groter zijn dan dit,&rdquo; zei ze. Maar de kleine Kikkers verklaarden allemaal dat het monster veel, veel groter was en de oude Kikker bleef zich steeds meer opblazen totdat ze opeens barstte."
-}, { id: 3,
-    title: "De Kikker en de Os",
-    language: "Dutch",
-    imgUrl: "./images/story-thumbnail.jpg",
-    summary: "Een Os kwam naar een rietachtig poel om te drinken. Toen hij zwaar in het water plonsde, trapte hij een jonge Kikker in de modder. De oude Kikker miste het jonge diertje snel en vroeg aan zijn broers en zussen wat er van hem was geworden. &ldquo;Een grote monster,&rdquo; zei een van hen, &ldquo;stepte op onze kleine broer met een van zijn enorme voeten!&rdquo; &ldquo;Groot was hij!&rdquo; zei de oude Kikker, zich opblazend. &ldquo;Was hij zo groot als dit?&rdquo; &ldquo;Oh, veel groter!&rdquo; riepen ze. De Kikker blies zich nog meer op. &ldquo;Hij kon niet groter zijn dan dit,&rdquo; zei ze. Maar de kleine Kikkers verklaarden allemaal dat het monster veel, veel groter was en de oude Kikker bleef zich steeds meer opblazen totdat ze opeens barstte."
-}, { id: 4,
-    title: "De Kikker en de Os",
-    language: "Dutch",
-    imgUrl: "./images/story-thumbnail.jpg",
-    summary: "Een Os kwam naar een rietachtig poel om te drinken. Toen hij zwaar in het water plonsde, trapte hij een jonge Kikker in de modder. De oude Kikker miste het jonge diertje snel en vroeg aan zijn broers en zussen wat er van hem was geworden. &ldquo;Een grote monster,&rdquo; zei een van hen, &ldquo;stepte op onze kleine broer met een van zijn enorme voeten!&rdquo; &ldquo;Groot was hij!&rdquo; zei de oude Kikker, zich opblazend. &ldquo;Was hij zo groot als dit?&rdquo; &ldquo;Oh, veel groter!&rdquo; riepen ze. De Kikker blies zich nog meer op. &ldquo;Hij kon niet groter zijn dan dit,&rdquo; zei ze. Maar de kleine Kikkers verklaarden allemaal dat het monster veel, veel groter was en de oude Kikker bleef zich steeds meer opblazen totdat ze opeens barstte."
-}, { id: 5,
-  title: "De Kikker en de Os",
-  language: "Dutch",
-  imgUrl: "./images/story-thumbnail.jpg",
-  summary: "Een Os kwam naar een rietachtig poel om te drinken. Toen hij zwaar in het water plonsde, trapte hij een jonge Kikker in de modder. De oude Kikker miste het jonge diertje snel en vroeg aan zijn broers en zussen wat er van hem was geworden. &ldquo;Een grote monster,&rdquo; zei een van hen, &ldquo;stepte op onze kleine broer met een van zijn enorme voeten!&rdquo; &ldquo;Groot was hij!&rdquo; zei de oude Kikker, zich opblazend. &ldquo;Was hij zo groot als dit?&rdquo; &ldquo;Oh, veel groter!&rdquo; riepen ze. De Kikker blies zich nog meer op. &ldquo;Hij kon niet groter zijn dan dit,&rdquo; zei ze. Maar de kleine Kikkers verklaarden allemaal dat het monster veel, veel groter was en de oude Kikker bleef zich steeds meer opblazen totdat ze opeens barstte."
-}];
-
+import storyApi from "./storyApi.js";
 // function to create story list
 
-export function renderStorySection() {
+export async function renderStorySection() {
+    // Get story list from the API
+    const apiStoryList = await storyApi.getStories();
+
     const routerView = document.getElementById("router-view");
     routerView.removeAttribute("class", "empty-state");
     routerView.setAttribute("class", "story-state");
@@ -42,7 +19,7 @@ export function renderStorySection() {
     routerView.appendChild(storyList);
 
     
-    storyObject.map((story) => {
+    apiStoryList.map((list) => {
         // create story list item
         const storyListItem = document.createElement("li");
         storyListItem.className = "view-list-item";
@@ -51,7 +28,7 @@ export function renderStorySection() {
         // create story image
         const storyImg = document.createElement("img");
         storyImg.className = "view-img";
-        storyImg.src = story.imgUrl;
+        storyImg.src = list.imgUrl;
         storyListItem.appendChild(storyImg);
       
         // create story info container
@@ -62,13 +39,13 @@ export function renderStorySection() {
             // create story title and append to info container
             const storyTitle = document.createElement("h3");
             storyTitle.className = "view-title";
-            storyTitle.innerHTML = story.title;
+            storyTitle.innerHTML = list.title;
             storyInfo.appendChild(storyTitle);
       
             // create story summary and append to info container
             const storySummary = document.createElement("p");
             storySummary.className = "view-summary";
-            storySummary.innerHTML = story.summary;
+            storySummary.innerHTML = list.summary;
             storyInfo.appendChild(storySummary);
 
         // create story button append to list item
@@ -102,10 +79,13 @@ export function renderStorySection() {
         iconSvg.appendChild(iconPath);
         iconSvg.appendChild(iconCircle);
         storyButton.appendChild(iconSvg);
+
+        // generate functie maken voor svg
+        // documenteren en data via link van robert opensheet
       });
 };
 
-export function renderEmptyState() {
+export async function renderEmptyState() {
     const routerView = document.getElementById("router-view");
     routerView.removeAttribute("class", "story-state");
     routerView.setAttribute("class", "empty-state");

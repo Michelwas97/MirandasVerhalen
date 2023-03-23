@@ -1,10 +1,14 @@
-import { storyObject } from "./storage.js";
+import storyApi from "./storyApi.js";
 
-export function setupSpeechSynthesis() {
+export async function setupSpeechSynthesis() {
     const synth = window.speechSynthesis;
-    const storyList = document.querySelector('.view-list');
-  
-    if (storyList) {
+    const routerView = document.getElementById("router-view");
+
+    // Get story list from the API
+    const apiStoryList = await storyApi.getStories();
+
+    if (routerView.classList.contains("story-state")) {
+      const storyList = document.querySelector(".view-list");
       storyList.addEventListener('click', (e) => {
         const listItem = e.target.closest('.view-list-item');
   
@@ -17,9 +21,12 @@ export function setupSpeechSynthesis() {
         if (listItem) {
           const listItems = Array.from(storyList.children);
           const index = listItems.indexOf(listItem) + 1;
-  
-          const story = storyObject.find((story) => story.id === index);
-          const summaryUtterance = new SpeechSynthesisUtterance(story.summary);
+          index.toString();
+          
+          console.log(index);
+          console.log(apiStoryList[0]);
+          const story = apiStoryList.find(apiStoryList => apiStoryList.id  == index);
+          const summaryUtterance = new SpeechSynthesisUtterance(apiStoryList.summary);
   
           summaryUtterance.onend = (event) => {
             console.log("SpeechSynthesisUtterance.onend");

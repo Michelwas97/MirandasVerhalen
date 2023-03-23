@@ -28,11 +28,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         //this gets called when hash == #stories
         renderStorySection();
+        setupSpeechSynthesis();
       }
     }
 });
-});
-
-window.addEventListener('load', () => {
-  const speak = setupSpeechSynthesis();
 });
