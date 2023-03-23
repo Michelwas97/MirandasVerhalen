@@ -27,7 +27,8 @@ Op de single webpage "Miranda's Verhalen" maak ik een concept web app die de ver
 For the first week I first started sketching the happy flow using the [User Story](https://github.com/cmda-minor-web/web-app-from-scratch-2122/blob/main/course/storytelling.md) I chose. While doing this I noticed I needed a landing page area and then a collection of story's which would be clickable to speak out the story writting inside them.
 
 After sketching out I started researching the [API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) that was connected to the [User Story](https://github.com/cmda-minor-web/web-app-from-scratch-2122/blob/main/course/storytelling.md), 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+
+[Live Demo 🌐](https://michelwas97.github.io/MirandasVerhalen/)
 
 <!-- ☝️ replace this description with a description of your own work -->
 
