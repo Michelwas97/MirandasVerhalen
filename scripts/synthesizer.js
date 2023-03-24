@@ -20,13 +20,16 @@ export async function setupSpeechSynthesis() {
   
         if (listItem) {
           const listItems = Array.from(storyList.children);
-          const index = listItems.indexOf(listItem) + 1;
-          index.toString();
-          
-          console.log(index);
-          console.log(apiStoryList[0]);
-          const story = apiStoryList.find(apiStoryList => apiStoryList.id  == index);
-          const summaryUtterance = new SpeechSynthesisUtterance(apiStoryList.summary);
+          let index = listItems.indexOf(listItem) + 1;
+          index = index.toString();
+        
+          const story = apiStoryList.find((story) => {
+            return story.id === index;
+          });
+
+          console.log(story)
+            
+          const summaryUtterance = new SpeechSynthesisUtterance(story.summary);
   
           summaryUtterance.onend = (event) => {
             console.log("SpeechSynthesisUtterance.onend");
